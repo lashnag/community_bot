@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: classpath:db/changesets/001_init/changeset.yaml
+  - include:
+      file: classpath:db/changesets/002_tg_username_can_be_private/changeset.yaml
+  - include:
+      file: classpath:db/changesets/003_save_participants_and_reserved_participants/changeset.yaml
+  - include:
+      file: classpath:db/changesets/004_replaced_participants/changeset.yaml

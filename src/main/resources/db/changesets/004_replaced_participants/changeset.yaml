@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: "004"
+      author: "a.lashnev"
+      changes:
+        - sqlFile:
+            path: classpath:db/changesets/004_replaced_participants/1_add_replaced_participant.sql
+      rollback:
+        - sqlFile:
+            path: classpath:db/changesets/004_replaced_participants/1_drop_replaced_participant.sql

@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: "004"
+      author: "a.lashnev"
+      changes:
+        - sqlFile:
+            path: classpath:db/changesets/003_save_participants_and_reserved_participants/1_add_participants.sql
+        - sqlFile:
+            path: classpath:db/changesets/003_save_participants_and_reserved_participants/2_add_reserved_participants.sql
+      rollback:
+        - sqlFile:
+            path: classpath:db/changesets/003_save_participants_and_reserved_participants/1_drop_participants.sql
+        - sqlFile:
+            path: classpath:db/changesets/003_save_participants_and_reserved_participants/2_drop_reserved_participants.sql

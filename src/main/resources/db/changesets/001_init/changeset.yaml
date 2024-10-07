@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: "001"
+      author: "a.simonov"
+      changes:
+        - sqlFile:
+            path: classpath:db/changesets/001_init/1_create_community_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/2_create_users_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/3_create_event_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/4_create_confirmed_participants_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/5_create_interested_participants_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/6_create_community_admins_table.sql
+      rollback:
+        - sqlFile:
+            path: classpath:db/changesets/001_init/1_drop_community_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/2_drop_users_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/3_drop_event_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/4_drop_confirmed_participants_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/5_drop_interested_participants_table.sql
+        - sqlFile:
+            path: classpath:db/changesets/001_init/6_drop_community_admins_table.sql

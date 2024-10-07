@@ -1,0 +1,15 @@
+# Профиль для запуска на локале у разработчика
+server.address: 127.0.0.1
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/community_bot"
+    username: test
+    password: test
+
+ru:
+  lashnev:
+    community:
+      bot:
+        secret-key: 6124920031:AAEKLWgXC1J_7R-tgn79PRfO3PA-oBKDNcg
+        user-name: "DevQiwiCommunityBot"

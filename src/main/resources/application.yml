@@ -1,0 +1,26 @@
+server.port: 8080
+
+spring:
+  liquibase:
+    change-log: classpath:/db/changelog.yaml
+  datasource:
+    url: "jdbc:postgresql://db_url:5432/community_bot"
+    username: community_bot_db_user
+    password: ${db_password:}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      pool-name: community_bot
+  jpa:
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+
+ru:
+  lashnev:
+    community:
+      bot:
+        secret-key: ${secret.bot.key:}
+        user-name: "CommunityBot"
+      database:
+        schema: community_bot

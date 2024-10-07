@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: "002"
+      author: "a.lashnev"
+      changes:
+        - sqlFile:
+            path: classpath:db/changesets/002_tg_username_can_be_private/1_make_username_nullable.sql
+        - sqlFile:
+            path: classpath:db/changesets/002_tg_username_can_be_private/2_add_first_and_last_name.sql
+      rollback:
+        - sqlFile:
+            path: classpath:db/changesets/002_tg_username_can_be_private/1_rollback_username_nullable.sql
+        - sqlFile:
+            path: classpath:db/changesets/002_tg_username_can_be_private/2_delete_first_and_last_name.sql
