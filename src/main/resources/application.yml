@@ -4,9 +4,9 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog.yaml
   datasource:
-    url: "jdbc:postgresql://db_url:5432/community_bot"
-    username: community_bot_db_user
-    password: ${db_password:}
+    url: "jdbc:postgresql://${POSTGRES_PATH}}:5432/${POSTGRES_DB}"
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
@@ -20,7 +20,5 @@ ru:
   lashnev:
     community:
       bot:
-        secret-key: ${secret.bot.key:}
-        user-name: "CommunityBot"
-      database:
-        schema: community_bot
+        secret-key: ${COMMUNITY_BOT_SECRET_KEY}
+        user-name: ${COMMUNITY_BOT_USERNAME}

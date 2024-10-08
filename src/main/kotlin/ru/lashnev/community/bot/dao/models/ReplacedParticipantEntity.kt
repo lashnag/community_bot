@@ -7,7 +7,7 @@ import jakarta.persistence.*
 data class ReplacedParticipantEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val replacementParticipantId: Long? = null,
+    val replacedParticipantId: Long? = null,
 
     @ManyToOne
     @JoinColumn(name = "event_id")
