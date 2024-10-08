@@ -3,11 +3,12 @@ package ru.lashnev.community.bot.dao.models
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "confirmed_participant")
-data class ConfirmedParticipantEntity(
+@Table(name = "reserved_participant")
+data class ReservedParticipantEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val confirmedParticipantId: Long? = null,
+    val reservedParticipantId: Long? = null,
+
     @ManyToOne
     @JoinColumn(name = "event_id")
     val event: EventEntity,

@@ -22,34 +22,14 @@ data class EventEntity(
     @JoinColumn(name = "community_id")
     val community: CommunityEntity,
 
-    @OneToMany
-    @JoinTable(
-        name = "interested_participants",
-        joinColumns = [JoinColumn(name = "event_id")],
-    )
-    val interestedParticipants: Set<UserEntity> = emptySet(),
-    @OneToMany
-    @JoinTable(
-        name = "confirmed_participants",
-        joinColumns = [JoinColumn(name = "event_id")],
-    )
-    val confirmedParticipants: Set<UserEntity> = emptySet(),
-    @OneToMany
-    @JoinTable(
-        name = "participants",
-        joinColumns = [JoinColumn(name = "event_id")],
-    )
-    val participants: Set<UserEntity> = emptySet(),
-    @OneToMany
-    @JoinTable(
-        name = "reserve_participants",
-        joinColumns = [JoinColumn(name = "event_id")],
-    )
-    val reserveParticipants: Set<UserEntity> = emptySet(),
-    @OneToMany
-    @JoinTable(
-        name = "replace_participants",
-        joinColumns = [JoinColumn(name = "event_id")],
-    )
+    @OneToMany(mappedBy = "event")
+    val interestedParticipants: Set<InterestedParticipantEntity> = emptySet(),
+    @OneToMany(mappedBy = "event")
+    val confirmedParticipants: Set<ConfirmedParticipantEntity> = emptySet(),
+    @OneToMany(mappedBy = "event")
+    val participants: Set<ParticipantEntity> = emptySet(),
+    @OneToMany(mappedBy = "event")
+    val reservedParticipants: Set<ReservedParticipantEntity> = emptySet(),
+    @OneToMany(mappedBy = "event")
     val replacedParticipants: Set<ReplacedParticipantEntity> = emptySet(),
 )

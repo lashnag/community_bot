@@ -6,5 +6,5 @@ import ru.lashnev.community.bot.dao.models.InterestedParticipantEntity
 
 @Repository
 interface InterestedParticipantRepository : JpaRepository<InterestedParticipantEntity, Long> {
-    fun deleteByEventIdAndUserId(eventId: Long, userId: Long)
+    fun deleteByEventEventIdAndUserUserId(eventId: Long, userId: Long)
 }

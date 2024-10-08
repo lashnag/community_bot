@@ -6,8 +6,6 @@ import ru.lashnev.community.bot.dao.EventDao
 import ru.lashnev.community.bot.dao.hibernate.CommunityRepository
 import ru.lashnev.community.bot.dao.hibernate.EventRepository
 import ru.lashnev.community.bot.dao.hibernate.UserRepository
-import ru.lashnev.community.bot.dao.models.ReplacedParticipantEntity
-import ru.lashnev.community.bot.dao.models.UserEntity
 import ru.lashnev.community.bot.mappers.EventMapper
 import ru.lashnev.community.bot.models.Event
 import java.time.LocalDateTime
@@ -85,7 +83,7 @@ class EventDaoImpl(
     }
 
     override fun getActiveEventsByUser(userId: Long): Set<Event> {
-        return eventRepository.findByEventDateAfterAndParticipantsUserIdOrReplacedParticipantsUserUserId(
+        return eventRepository.findByEventDateAfterAndParticipantsUserUserIdOrReplacedParticipantsUserUserId(
             LocalDateTime.now(),
             userId,
             userId

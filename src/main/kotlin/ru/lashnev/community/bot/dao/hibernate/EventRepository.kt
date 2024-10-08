@@ -15,7 +15,7 @@ interface EventRepository : JpaRepository<EventEntity, Long> {
     fun findByPollConfirmationId(pollConfirmationId: String): EventEntity?
     fun findByCommunityCommunityIdAndEventDateAfterAndNotificationDateIsNotNull(communityId: Long, notificationDate: LocalDateTime): Set<EventEntity>
     fun findByEventDateBeforeAndCommunityCommunityIdOrderByEventDate(eventDateTime: LocalDateTime, communityId: Long): Set<EventEntity>
-    fun findByEventDateAfterAndParticipantsUserIdOrReplacedParticipantsUserUserId(
+    fun findByEventDateAfterAndParticipantsUserUserIdOrReplacedParticipantsUserUserId(
         eventDateTime: LocalDateTime,
         participantId: Long,
         sameParticipantId: Long,

@@ -14,10 +14,10 @@ class EventMapper(private val userMapper: UserMapper, private val communityMappe
             pollId = eventEntity.pollId,
             pollConfirmationId = eventEntity.pollConfirmationId,
             community = communityMapper.toBO(eventEntity.community),
-            interestedParticipants = eventEntity.interestedParticipants.map { userMapper.toBO(it) }.toSet(),
-            confirmedParticipants = eventEntity.confirmedParticipants.map { userMapper.toBO(it) }.toSet(),
-            participants = eventEntity.participants.map { userMapper.toBO(it) }.toSet(),
-            reserveParticipants = eventEntity.reserveParticipants.map { userMapper.toBO(it) }.toSet(),
+            interestedParticipants = eventEntity.interestedParticipants.map { userMapper.toBO(it.user) }.toSet(),
+            confirmedParticipants = eventEntity.confirmedParticipants.map { userMapper.toBO(it.user) }.toSet(),
+            participants = eventEntity.participants.map { userMapper.toBO(it.user) }.toSet(),
+            reserveParticipants = eventEntity.reservedParticipants.map { userMapper.toBO(it.user) }.toSet(),
             replacedParticipants = eventEntity.replacedParticipants.map {
                 ReplacedParticipant(
                     userMapper.toBO(it.user),
