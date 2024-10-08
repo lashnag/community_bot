@@ -7,4 +7,5 @@ import ru.lashnev.community.bot.dao.models.ConfirmedParticipantEntity
 @Repository
 interface ConfirmedParticipantRepository : JpaRepository<ConfirmedParticipantEntity, Long> {
     fun deleteByEventEventIdAndUserUserId(eventId: Long, userId: Long)
+    fun findByEventEventId(eventId: Long): Set<ConfirmedParticipantEntity>
 }

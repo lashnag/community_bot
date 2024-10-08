@@ -3,7 +3,6 @@ package ru.lashnev.community.bot.mappers
 import org.springframework.stereotype.Component
 import ru.lashnev.community.bot.dao.models.EventEntity
 import ru.lashnev.community.bot.models.Event
-import ru.lashnev.community.bot.models.ReplacedParticipant
 
 @Component
 class EventMapper(private val userMapper: UserMapper, private val communityMapper: CommunityMapper) {
@@ -14,16 +13,6 @@ class EventMapper(private val userMapper: UserMapper, private val communityMappe
             pollId = eventEntity.pollId,
             pollConfirmationId = eventEntity.pollConfirmationId,
             community = communityMapper.toBO(eventEntity.community),
-            interestedParticipants = eventEntity.interestedParticipants.map { userMapper.toBO(it.user) }.toSet(),
-            confirmedParticipants = eventEntity.confirmedParticipants.map { userMapper.toBO(it.user) }.toSet(),
-            participants = eventEntity.participants.map { userMapper.toBO(it.user) }.toSet(),
-            reserveParticipants = eventEntity.reservedParticipants.map { userMapper.toBO(it.user) }.toSet(),
-            replacedParticipants = eventEntity.replacedParticipants.map {
-                ReplacedParticipant(
-                    userMapper.toBO(it.user),
-                    it.replaceUser?.let { userMapper.toBO(it) }
-                )
-            }.toSet(),
             eventDate = eventEntity.eventDate,
             pollDate = eventEntity.pollDate,
             pollConfirmationDate = eventEntity.pollConfirmationDate,
