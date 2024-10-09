@@ -1,5 +1,6 @@
 # Профиль для запуска на локале у разработчика
-server.address: 127.0.0.1
+server:
+  address: 127.0.0.1
 
 spring:
   datasource:
